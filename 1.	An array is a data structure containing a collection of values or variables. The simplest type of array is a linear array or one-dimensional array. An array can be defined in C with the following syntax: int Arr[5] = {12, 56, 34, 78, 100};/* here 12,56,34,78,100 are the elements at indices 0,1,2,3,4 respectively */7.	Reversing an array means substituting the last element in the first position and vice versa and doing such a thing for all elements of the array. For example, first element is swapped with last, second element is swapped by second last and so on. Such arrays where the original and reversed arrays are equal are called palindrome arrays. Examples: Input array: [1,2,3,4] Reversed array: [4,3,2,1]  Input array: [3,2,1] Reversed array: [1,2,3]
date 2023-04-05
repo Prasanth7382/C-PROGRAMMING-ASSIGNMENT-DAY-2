@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+int main() {
+   int arr[10] = {1, 2, 3, 4, 3, 2, 1}; // Example input array
+   int size = sizeof(arr) / sizeof(arr[0]); // Calculate size of array
+   int reversed_arr[10]; // Declare an array for reversed elements
+   int i, j;
+
+   // Reverse the input array
+   for (i = 0, j = size - 1; i < size; i++, j--) {
+      reversed_arr[i] = arr[j];
+   }
+
+   // Check if the reversed array is equal to the input array
+   int is_palindrome = 1; // Initialize to true
+   for (i = 0; i < size; i++) {
+      if (arr[i] != reversed_arr[i]) {
+         is_palindrome = 0; // If not equal, set to false
+         break;
+      }
+   }
+
+   // Print the input and reversed arrays
+   printf("Input Array: ");
+   for (i = 0; i < size; i++) {
+      printf("%d ", arr[i]);
+   }
+   printf("\n");
+
+   printf("Reversed Array: ");
+   for (i = 0; i < size; i++) {
+      printf("%d ", reversed_arr[i]);
+   }
+   printf("\n");
+
+   // Check if the input array is a palindrome
+   if (is_palindrome) {
+      printf("The input array is a palindrome.\n");
+   } else {
+      printf("The input array is not a palindrome.\n");
+   }
+
+   return 0;
+}
