@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main() {
+   int arr[10] = {1, 2, 4, 5, 4, 2, 7, 5}; // Example input array
+   int size = sizeof(arr) / sizeof(arr[0]); // Calculate size of array
+   int i, j, k;
+
+   // Loop through each element of the array
+   for (i = 0; i < size; i++) {
+      // Check if the current element is a duplicate
+      for (j = i + 1; j < size;) {
+         if (arr[j] == arr[i]) {
+            // If duplicate, shift all elements to the left
+            for (k = j; k < size; k++) {
+               arr[k] = arr[k + 1];
+            }
+            size--; // Decrement the size of array
+         } else {
+            j++;
+         }
+      }
+   }
+
+   // Print the resultant array after removing duplicates
+   printf("Resultant Array after removing duplicates: ");
+   for (i = 0; i < size; i++) {
+      printf("%d ", arr[i]);
+   }
+   return 0;
+}
